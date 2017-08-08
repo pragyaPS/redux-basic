@@ -1,0 +1,26 @@
+{
+    "employeeList": [
+        {
+            "name": "Soni",
+            "age": 26,
+            "company": "Infosys"
+        },
+        {
+            "name": "Pragya",
+            "age": 25,
+            "company": "TCS"
+        },
+        {
+            "name": "Garima",
+            "age": 20,
+            "company": "TCS"
+        },
+        {
+            "name": "Ajay",
+            "age": 38,
+            "company": "Westpac"
+        }
+    ],
+    "hasErrored": false,
+    "isLoading": false
+}

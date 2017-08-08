@@ -1,0 +1,36 @@
+{
+  "name": "react-menu",
+  "version": "1.0.0",
+  "description": "react-menu",
+  "main": "index.js",
+  "author": "Pragya",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.1.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "json-loader": "^0.5.4",
+    "node-sass": "^4.5.3",
+    "prop-types": "^15.5.10",
+    "ramda": "^0.24.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.1.0",
+    "webpack-dev-server": "^2.5.1"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^2.29.0",
+    "path": "^0.12.7",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+  }
+}
