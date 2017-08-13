@@ -8,6 +8,7 @@ import { ajaxLoadData } from '../shared/utils/utils.js';
 import Footer from './Footer.jsx';
 import AddToDo from '../Containers/AddToDo.jsx';
 import VisibleToDoList from '../Containers/VisibleToDoList.jsx';
+import './app.scss';
 
 export default class App extends React.Component {
 
@@ -18,6 +19,8 @@ export default class App extends React.Component {
       <AddToDo/>
       <VisibleToDoList/>
       <Footer />
+      
+
      </div>);
   }
 }

@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from '../../shared/constants';
+import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from '../../shared/constants';
 
 const toDos = (state = [], action) => {
     
@@ -16,6 +16,9 @@ const toDos = (state = [], action) => {
             return state.map( todo => (todo.id === action.id 
                                         ? { ...todo, completed: !todo.completed }
                                         : todo ));
+        
+        case REMOVE_TODO: 
+            return state.filter((todo)=>(todo.id!=action.id))
         
         default :
             return state;

@@ -1,4 +1,4 @@
-import { ADD_TODO, SET_VISIBILITY_FILTER, TOGGLE_TODO } from '../../shared/constants';
+import { ADD_TODO, SET_VISIBILITY_FILTER, TOGGLE_TODO, REMOVE_TODO } from '../../shared/constants';
 
 let nextToDoId = 0;
 
@@ -15,5 +15,10 @@ export const setVisibilityFilter = filter => ({
 
 export const toggleToDo = id => ({
     type: TOGGLE_TODO,
+    id
+});
+
+export const removeTodo = id => ({
+    type: REMOVE_TODO,
     id
 });

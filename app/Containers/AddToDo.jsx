@@ -11,7 +11,7 @@ let AddToDo= (props) =>{
                 e.preventDefault();
                 if(!input.value.trim())
                 return false;
-                props.dispatch(addToDo('complete app'));
+                props.dispatch(addToDo(input.value));
                 
                 input.value = '';
                 }}>

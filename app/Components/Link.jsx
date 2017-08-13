@@ -7,7 +7,7 @@ const Link = ({active, children, onClick}) => {
         return <span> { children } </span>
     }
     return (
-        <a onClick={ onClick }> { children } </a>
+        <a onClick={ onClick } > { children } </a>
     )
 } 
 Link.PropTypes = {
