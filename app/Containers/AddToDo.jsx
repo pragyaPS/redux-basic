@@ -3,15 +3,16 @@ import {connect} from 'react-redux';
 import { addToDo } from '../store/Actions/index.js';
 
 
-let AddToDo= ({dispatch}) =>{
-    let input
+let AddToDo= (props) =>{
+    let input;
     return (
         <div>
-            <form onSubmit = {e =>{
+            <form onSubmit = {e => {
                 e.preventDefault();
                 if(!input.value.trim())
                 return false;
-                dispatch(addToDo('complete app'))
+                props.dispatch(addToDo('complete app'));
+                
                 input.value = '';
                 }}>
                 <input ref={ node => {input = node;}} />

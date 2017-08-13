@@ -10,15 +10,7 @@ import AddToDo from '../Containers/AddToDo.jsx';
 import VisibleToDoList from '../Containers/VisibleToDoList.jsx';
 
 export default class App extends React.Component {
-  // static propTypes = {
-  //   dataUrl: React.PropTypes.string
-  // };
-  //  componentDidMount() {
-  //       console.log(this.props.dataUrl);
-  //       ajaxLoadData(this.props.dataUrl, (data) => {
-  //           console.log("inside comp", data);
-  //       });
-  //   }
+
 
   render() {
     return (
@@ -26,7 +18,6 @@ export default class App extends React.Component {
       <AddToDo/>
       <VisibleToDoList/>
       <Footer />
-
      </div>);
   }
 }

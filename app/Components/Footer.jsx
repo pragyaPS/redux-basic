@@ -1,10 +1,11 @@
 import React from 'react';
 import FilterLink from '../Containers/FilterLink.jsx';
-import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../store/Actions/index'
+import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../shared/constants.js'
+
 
 const Footer = () => (
     <p>
-        Show
+        Show 
         <FilterLink filter= { SHOW_ALL }>
            All
         </FilterLink>

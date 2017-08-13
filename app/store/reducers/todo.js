@@ -1,8 +1,9 @@
 import { ADD_TODO, TOGGLE_TODO } from '../../shared/constants';
 
 const toDos = (state = [], action) => {
-    switch (action) {
-        case ADD_TODO: 
+    
+    switch (action.type) {
+        case ADD_TODO:
             return [
                 ...state,
                 {
