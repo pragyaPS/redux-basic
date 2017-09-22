@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { addToDo } from '../store/Actions/index.js';
+import { addToDo } from '../store/Actions/index';
 
 
 let AddToDo= (props) =>{

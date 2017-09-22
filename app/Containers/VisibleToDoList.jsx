@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { toggleToDo, removeTodo } from '../store/Actions/index.js';
+import { toggleToDo, removeTodo } from '../store/Actions/index';
 import  TodoList  from '../Components/TodoList.jsx'; 
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../shared/constants';
 

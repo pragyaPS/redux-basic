@@ -9,7 +9,7 @@ const TodoList = ({todos, onTodoClick, removeTodoClick}) => {
         todos.map(todo => (
             <Todo key = { todo.id }
                   onClick={ () => onTodoClick(todo.id) }
-                  removeTodoClick={ () => removeTodoClick(todo.id) }{...todo}/>
+                  removeTodoClick={ () => removeTodoClick(todo.id) }{...todo} />
         )  )
      }  
     </ul>
