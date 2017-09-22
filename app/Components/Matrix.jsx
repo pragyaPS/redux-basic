@@ -14,7 +14,11 @@ class Matrix extends React.Component {
   };
   constructor() {
       super();
-      this.state = {matrix: this.generateTable(16,16)};
+      this.positionValues = ['top','right','bottom','left'];
+      this.matrix= this.generateTable(16,16);
+      let currentPosition = this.matrix[0];
+      this.state = {currentX: currentPosition.x, currentY: currentPosition.y, position: this.positionValues[0] }
+
   }
   generateTable = (m,n) => {
       let matrix= [];
@@ -28,15 +32,13 @@ class Matrix extends React.Component {
 render() {
     
    return  (<div>
-
        <table >
            {
-                [...Array(16)].map((e0,i)=> ( 
+               [...Array(16)].map((e0,i)=> ( 
                     <tr key={i}>
-
                         {
                             [...Array(16)].map((e1, j ) => ( 
-                                <td key={j}>{i}{j}</td>
+                                <td key={j+"||"+j}>{i}/{j}</td>
                             ))
                         }
                     </tr>
@@ -44,11 +46,23 @@ render() {
            }
        </table>
 
-       <Button>Turn Left</Button>
-       <Button>Turn right</Button>
-       <Button>Move Forward</Button>
+       <Button onClick = {this.handleTurnLeft}>Turn Left</Button>
+       <Button onClick = {this.handleTurnRight}>Turn right</Button>
+       <Button onClick = {this.handleMoveForward}>Move Forward</Button>
    </div>)
 }
+handleTurnLeft = () => {
+  
+}
+
+handleTurnRight = () => {
+    
+}
+
+handleMoveForward = () => {
+    
+}
+
 }
 
 export default Matrix;
