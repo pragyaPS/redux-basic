@@ -17,7 +17,7 @@ class Matrix extends React.Component {
       this.positionValues = ['top','right','bottom','left'];
       this.matrix= this.generateTable(16,16);
       let currentPosition = this.matrix[0];
-      this.state = {currentX: currentPosition.x, currentY: currentPosition.y, position: this.positionValues[0] }
+      this.state = {currentX: currentPosition.x, currentY: currentPosition.y, currentPosition: this.positionValues[0] }
 
   }
   generateTable = (m,n) => {
@@ -45,13 +45,25 @@ render() {
                 ))
            }
        </table>
+       <div>currentX: {this.state.currentX}, currentY: {this.state.currentY}, currentPosition: {this.state.currentPosition }</div>
 
        <Button onClick = {this.handleTurnLeft}>Turn Left</Button>
        <Button onClick = {this.handleTurnRight}>Turn right</Button>
        <Button onClick = {this.handleMoveForward}>Move Forward</Button>
    </div>)
 }
+
+getNextElement= (arr, currentIndex) => {
+let nextIndex = ++currentIndex / arr.length;
+return arr[nextIndex];
+}
+getPreviousElement = (arr, currentIndex) => {
+    let PrevIndex = currentIndex ==0? arr.length-1 : currentIndex-1;
+    return arr[PrevIndex];
+
+}
 handleTurnLeft = () => {
+    this.setState({currentPosition: this.getPreviousElement(this.positionValues, this.positionValues.indexOf(this.state.currentPosition))})
   
 }
 
