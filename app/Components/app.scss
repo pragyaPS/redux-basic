@@ -12,3 +12,24 @@ table, td {
     border: 1px solid black;
     padding:  10px;
 }
+@mixin transformRotate($degree) {
+  -ms-transform: rotate($degree); /* IE 9 */
+    -webkit-transform: rotate($degree); /* Chrome, Safari, Opera */
+    transform: rotate($degree);
+}
+.robote-TOP {
+   @include transformRotate(-90deg);
+}
+.robote-LEFT {
+    @include transformRotate(-180deg);
+}
+.robote-BOTTOM {
+    @include transformRotate(90deg);
+}
+.robote-RIGHT {
+    @include transformRotate(0deg);
+}
+.error-msg{
+    color: red;
+    font-weight: bold;
+}

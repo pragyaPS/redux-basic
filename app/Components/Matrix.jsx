@@ -6,29 +6,31 @@ import Button from './commonComponent/Button.jsx';
 
 class Matrix extends React.Component {
     static propTypes = {
-        data: PropTypes.array,
+        rows: PropTypes.number,
+        column: PropTypes.number
     
     };
     static defaultProps = {
-    
+    rows: 16,
+    column: 16
   };
-  constructor() {
-      super();
+  constructor(props) {
+      super(props);
       this.positionValues = ['TOP','RIGHT','BOTTOM','LEFT'];
-      this.matrix= this.generateTable(16,16);
+      this.matrix= this.generateTable(this.props.rows, this.props.column);
       let currentPosition = this.matrix[0];
       this.state = {
           currentX: currentPosition.x,
             currentY: currentPosition.y,
-          currentPosition: this.positionValues[0],
+          currentPosition: this.positionValues[1],
           isDeadLock: false
        }
-
-  }
+    }
 
 render() {
     
    return  (<div>
+       {this.state.isDeadLock && <div className="error-msg">DeadLock</div>}
        <table >
            {
                [...Array(16)].map((e0,i)=> ( 
@@ -36,7 +38,7 @@ render() {
                         {
                             [...Array(16)].map((e1, j ) => ( 
                                 <td key={j+"||"+j}> 
-                                    {i=== this.state.currentX && j === this.state.currentY ? "C" : "" }
+                                    {i=== this.state.currentX && j === this.state.currentY ? (<div className= {'robote-'+this.state.currentPosition}>C</div>) : "" }
                                      </td>
                             ))
                         }
@@ -44,7 +46,7 @@ render() {
                 ))
            }
        </table>
-       {this.state.isDeadLock ? <div>DeadLock</div> : null}
+       
        <div>currentX: {this.state.currentX}, currentY: {this.state.currentY}, currentPosition: {this.state.currentPosition }, isDeadLock:{this.state.isDeadLock.toString()}</div>
 
        <Button onClick = {this.handleTurnLeft}>Turn Left</Button>
@@ -72,11 +74,11 @@ getPreviousElement = (arr, currentIndex) => {
 
 }
 handleTurnLeft = () => {
-    this.setState({currentPosition: this.getPreviousElement(this.positionValues, this.positionValues.indexOf(this.state.currentPosition))});
+    !this.state.isDeadLock ? this.setState({currentPosition: this.getPreviousElement(this.positionValues, this.positionValues.indexOf(this.state.currentPosition))}): null;
   }
 
 handleTurnRight = () => {
-    this.setState({currentPosition: this.getNextElement(this.positionValues, this.positionValues.indexOf(this.state.currentPosition))})
+    !this.state.isDeadLock ? this.setState({currentPosition: this.getNextElement(this.positionValues, this.positionValues.indexOf(this.state.currentPosition))}) : null;
 }
 checkDeadLock (x,y){
     let deadLockFlag = (x<0||x>15) || (y<0 || y>15);
@@ -88,13 +90,13 @@ checkDeadLock (x,y){
 handleMoveForward = () => {
     if(!this.state.isDeadLock) {
         switch(this.state.currentPosition){
-            case "LEFT": !this.checkDeadLock(this.state.currentX-1,this.state.currentY) ? this.setState({currentX: this.state.currentX-1}) : null;
+            case "LEFT": !this.checkDeadLock(this.state.currentX,this.state.currentY-1) ? this.setState({currentY: this.state.currentY-1}) : null;
                         break;
-            case "RIGHT": !this.checkDeadLock(this.state.currentX+1,this.state.currentY) ? this.setState({currentX: this.state.currentX+1}) : null;
+            case "RIGHT": !this.checkDeadLock(this.state.currentX,this.state.currentY+1) ? this.setState({currentY: this.state.currentY+1}) : null;
                         break;
-            case "TOP": !this.checkDeadLock(this.state.currentX,this.state.currentY-1) ? this.setState({currentY: this.state.currentY -1}) : null;
+            case "TOP": !this.checkDeadLock(this.state.currentX-1,this.state.currentY) ? this.setState({currentX: this.state.currentX -1}) : null;
                         break;
-            case "BOTTOM": !this.checkDeadLock(this.state.currentX,this.state.currentY+1) ? this.setState({currentY: this.state.currentY + 1}) : null;
+            case "BOTTOM": !this.checkDeadLock(this.state.currentX+1,this.state.currentY) ? this.setState({currentX: this.state.currentX + 1}) : null;
                         break;
             
 
