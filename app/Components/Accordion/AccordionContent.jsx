@@ -6,12 +6,11 @@ const Content = styled.div`
   display: ${ props => props.isOpen ? 'block' : 'none' };
  `;
 
-const AccordionContent = (props) => (<Content isOpen={ props.isOpen }> { props.content } </Content>);
+const AccordionContent = ( {isOpen, content} ) => (<Content isOpen={ isOpen }> { content } </Content>);
 
 AccordionContent.propTypes = {
     isOpen: PropTypes.bool,
     content: PropTypes.node
-   
-}
+   }
 
 export default AccordionContent;

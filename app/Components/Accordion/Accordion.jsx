@@ -14,8 +14,6 @@ const Button = styled.button`
 `;
 
 class Accordion extends Component {
-
-
     static propTypes = {
         title: PropTypes.node,
         content: PropTypes.node,
@@ -25,22 +23,27 @@ class Accordion extends Component {
     static defaultProps = {
     isDefaultOpen: false
   };
-    constructor(props) {
-        super(props);
-        this.state= { isOpen: this.props.isDefaultOpen }
+  constructor(props) {
+      super(props);
+      this.state= { isOpen: this.props.isDefaultOpen }
     }
     render(){
         return (<div>
-            <AccordionHeader handleTitleClick={  this.handleTitleClick } background="red" title="title" />
-            <AccordionContent isOpen={ this.state.isOpen } content="content" />
-        </div>);
+            <AccordionHeader handleTitleClick={  this.handleTitleClick }
+            background="red"
+            title="title" />
+            
+             <AccordionContent isOpen={ this.state.isOpen }
+             content="content" />
+             </div>);
     }
    
-
-    handleTitleClick = () => {
+   handleTitleClick = () => {
         this.setState((prevState, props) => {
             return { isOpen: !prevState.isOpen }
         });
     }
 }
+
 export default Accordion;
+
