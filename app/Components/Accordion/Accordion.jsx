@@ -5,14 +5,6 @@ import styled from 'styled-components';
 import AccordionHeader from './AccordionHeader.jsx';
 import AccordionContent from './AccordionContent.jsx';
 
-
-const Button = styled.button`
-  background: palevioletred;
-  border-radius: 3px;
-  border: none;
-  color: white;
-`;
-
 class Accordion extends Component {
     static propTypes = {
         title: PropTypes.node,
