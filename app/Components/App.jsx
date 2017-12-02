@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 import { ajaxLoadData } from '../shared/utils/utils.js';
 
 import Matrix from './Matrix.jsx';
+import Accordion from './Accordion/Accordion.jsx';
 
 import Footer from './Footer.jsx';
 import AddToDo from '../Containers/AddToDo.jsx';
@@ -18,10 +19,11 @@ export default class App extends React.Component {
   render() {
     return (
      <div>
-      <AddToDo/>
+      {/*<AddToDo/>
       <VisibleToDoList/>
       <Footer />
-      <Matrix />
+      <Matrix />*/}
+      <Accordion />
 
       
 
